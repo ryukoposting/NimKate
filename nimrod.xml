@@ -13,8 +13,9 @@ Improvements:
 - made escape sequences in strings work slightly better (still needs work)
 - changed pragma syntax highlighting to dsAttribute instead of dsDataType
 - doc comments
+- added more context sensitivity, makes command syntax highlighting more consistent
 - TODO/BUG/FIXME/HACK/XXXX/NOTE comments
-
+- misc stuff
 -->
 
 <language
@@ -111,6 +112,7 @@ Improvements:
 			<item> float32 </item>
 			<item> float64 </item>
 			<item> generic </item>
+			<item> range </item>
 			<item> int </item>
 			<item> int8 </item>
 			<item> int16 </item>
@@ -240,6 +242,7 @@ Improvements:
 			</context>
 			
 			<context name="Typetar" attribute="TypeDefs" lineEndContext="#pop">
+				<Detect2Chars context="Pragmatar" attribute="Pragmas" char="{" char1="."/>
 				<DetectChar context="#stay" attribute="Brackets" char="."/>
 				<AnyChar context="#pop" attribute="Brackets" String="()[]{},:;"/>
 				<AnyChar context="#pop" attribute="Symbols"  String=" +-*/=!@$%^&amp;&lt;&gt;"/>
