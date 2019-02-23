@@ -159,13 +159,13 @@ Improvements:
 		
 		<contexts>
 			<context name="Normal" attribute="Normal Text" lineEndContext="#stay">
-				<keyword context="#stay" attribute="Keywords" String="keywords"/>
-				<keyword context="#stay" attribute="Controls" String="controls"/>
-				<keyword context="#stay" attribute="Symbols"  String="operators"/>
-				<keyword context="#stay" attribute="Types"    String="types"/>
-				<keyword context="#stay" attribute="Attrs"    String="attrs"/>
-				<keyword context="#stay" attribute="Others"   String="others"/>
-				<keyword context="#stay" attribute="Float"    String="consts"/>
+				<keyword context="#stay" attribute="Keywords"  String="keywords"/>
+				<keyword context="#stay" attribute="Controls"  String="controls"/>
+				<keyword context="#stay" attribute="Operators" String="operators"/>
+				<keyword context="#stay" attribute="Types"     String="types"/>
+				<keyword context="#stay" attribute="Attrs"     String="attrs"/>
+				<keyword context="#stay" attribute="Others"    String="others"/>
+				<keyword context="#stay" attribute="Float"     String="consts"/>
 				
 				<RegExpr context="Proctar" attribute="Keywords" String="\bconverter\b\s*"/>
 				<RegExpr context="Proctar" attribute="Keywords" String="\biterator\b\s*"/>
@@ -274,6 +274,7 @@ Improvements:
 			<itemData name="Normal Text" defStyleNum="dsNormal"    spellChecking="false"/>
 			<itemData name="Keywords"    defStyleNum="dsKeyword"   spellChecking="false"/>
 			<itemData name="Controls"    defStyleNum="dsDataType"  spellChecking="false"/>
+			<itemData name="Operators"   defStyleNum="dsKeyword"   spellChecking="false"/>
 			<itemData name="Pragmas"     defStyleNum="dsAttribute" spellChecking="false"/>
 			<itemData name="Types"       defStyleNum="dsDataType"  spellChecking="false"/>
 			<itemData name="Props"       defStyleNum="dsDataType"  spellChecking="false"/>
@@ -294,7 +295,7 @@ Improvements:
 			<itemData name="Float"       defStyleNum="dsFloat"    spellChecking="false"/>
 			<itemData name="Char"        defStyleNum="dsChar"     spellChecking="false"/>
 			<itemData name="String"      defStyleNum="dsString"   spellChecking="false"/>
-			<itemData name="Comment"     defStyleNum="dsComment"  spellChecking="false"/>
+			<itemData name="Comment"     defStyleNum="dsComment"  spellChecking="true"/>
 			<itemData name="Alert"       defStyleNum="dsAlert"    spellChecking="false" bold="true"/>
 			<itemData name="Warning"     defStyleNum="dsWarning"  spellChecking="false" bold="true"/>
 			<itemData name="Info"        defStyleNum="dsInformation" spellChecking="false" bold="true"/>
