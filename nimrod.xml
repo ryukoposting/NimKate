@@ -273,20 +273,20 @@ Improvements:
 		<itemDatas>
 			<itemData name="Normal Text" defStyleNum="dsNormal"    spellChecking="false"/>
 			<itemData name="Keywords"    defStyleNum="dsKeyword"   spellChecking="false"/>
-			<itemData name="Controls"    defStyleNum="dsDataType"  spellChecking="false"/>
+			<itemData name="Controls"    defStyleNum="dsControlFlow" spellChecking="false"/>
 			<itemData name="Operators"   defStyleNum="dsKeyword"   spellChecking="false"/>
 			<itemData name="Pragmas"     defStyleNum="dsAttribute" spellChecking="false"/>
 			<itemData name="Types"       defStyleNum="dsDataType"  spellChecking="false"/>
 			<itemData name="Props"       defStyleNum="dsDataType"  spellChecking="false"/>
-			<itemData name="Funcs"       defStyleNum="dsDataType"  spellChecking="false"/>
+			<itemData name="Funcs"       defStyleNum="dsFunction"  spellChecking="false"/>
 			<itemData name="Attrs"       defStyleNum="dsDataType"  spellChecking="false"/>
-			<itemData name="Others"      defStyleNum="dsOthers"    spellChecking="false"/>
+			<itemData name="Others"      defStyleNum="dsVariable"  spellChecking="false"/>
 			
 			<itemData name="TypeDefs"    defStyleNum="dsDataType" spellChecking="false" bold="true"/>
-			<itemData name="ProcDefs"    defStyleNum="dsString"   spellChecking="false" bold="true"/>
+			<itemData name="ProcDefs"    defStyleNum="dsDataType" spellChecking="false" bold="true"/>
 			
 			<itemData name="Brackets"    defStyleNum="dsKeyword"  spellChecking="false"/>
-			<itemData name="Symbols"     defStyleNum="dsComment"  spellChecking="false"/>
+			<itemData name="Symbols"     defStyleNum="dsOperator" spellChecking="false"/>
 			
 			<itemData name="Decimal"     defStyleNum="dsDecVal"   spellChecking="false"/>
 			<itemData name="Hex"         defStyleNum="dsBaseN"    spellChecking="false"/>
