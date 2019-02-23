@@ -37,21 +37,15 @@ Improvements:
 		</list>
 		
 		<list name="controls">
-			<item> assert </item> <!-- system -->
 			<item> asm </item>
 			<item> atomic </item>
 			<item> block </item>
 			<item> break </item>
 			<item> case </item>
 			<item> cast </item>
-			<item> compiles </item> <!-- system -->
 			<item> continue </item>
-			<item> declared </item> <!-- system -->
-			<item> declaredinscope </item> <!-- system -->
-			<item> defined </item> <!-- system -->
 			<item> discard </item>
 			<item> do </item>
-			<item> echo </item> <!-- system -->
 			<item> elif </item>
 			<item> else </item>
 			<item> end </item>
@@ -62,20 +56,16 @@ Improvements:
 			<item> if </item>
 			<item> mixin </item>
 			<item> bind </item>
-			<item> new </item> <!-- system -->
 			<item> raise </item>
 			<item> return </item>
-			<item> sizeof </item> <!-- system -->
 			<item> try </item>
 			<item> when </item>
 			<item> while </item>
-			<item> quit </item> <!-- system -->
 			<item> using </item>
 			<item> yield </item>
 		</list>
 		
 		<list name="operators">
-			<item> addr </item>
 			<item> and </item>
 			<item> as </item>
 			<item> div </item>
@@ -105,7 +95,6 @@ Improvements:
 			<item> cshort </item>
 			<item> cstring </item>
 			<item> cuint </item>
-			<item> distinct </item>
 			<item> expr </item>
 			<item> float </item>
 			<item> float32 </item>
@@ -119,12 +108,12 @@ Improvements:
 			<item> interface </item>
 			<item> openarray </item>
 			<item> pointer </item>
+			<item> range </item>
 			<item> set </item>
 			<item> seq </item>
 			<item> stmt </item>
 			<item> string </item>
 			<item> tuple </item>
-			<item> typedesc </item>
 			<item> uint </item>
 			<item> uint8 </item>
 			<item> uint16 </item>
@@ -140,48 +129,62 @@ Improvements:
 			<item> out </item>
 			<item> ptr </item>
 			<item> ref </item>
+			<item> lent </item>
+			<item> sink </item>
 			<item> shared </item>
 			<item> static </item>
+			<item> distinct </item>
 		</list>
 		
 		<list name="consts">
-			<item> false </item>
 			<item> inf </item>
 			<item> nil </item>
 			<item> true </item>
+			<item> false </item>
 			<item> on </item>
 			<item> off </item>
 		</list>
 		
-		<list name="others">
+		<list name="builtins">
+			<item> assert </item>
+			<item> addr </item>
+			<item> unsafeaddr </item>
+			<item> sizeof </item>
+			<item> new </item>
+			<item> compiles </item>
+			<item> echo </item>
+		</list>
+		
+		<list name="result">
 			<item> result </item>
 		</list>
 		
 		<contexts>
 			<context name="Normal" attribute="Normal Text" lineEndContext="#stay">
-				<keyword context="#stay" attribute="Keywords"  String="keywords"/>
-				<keyword context="#stay" attribute="Controls"  String="controls"/>
-				<keyword context="#stay" attribute="Operators" String="operators"/>
-				<keyword context="#stay" attribute="Types"     String="types"/>
-				<keyword context="#stay" attribute="Attrs"     String="attrs"/>
-				<keyword context="#stay" attribute="Others"    String="others"/>
-				<keyword context="#stay" attribute="Float"     String="consts"/>
+				<keyword context="#stay" attribute="Keywords"   String="keywords"/>
+				<keyword context="#stay" attribute="Controls"   String="controls"/>
+				<keyword context="#stay" attribute="Operators"  String="operators"/>
+				<keyword context="#stay" attribute="Types"      String="types"/>
+				<keyword context="#stay" attribute="Attrs"      String="attrs"/>
+				<keyword context="#stay" attribute="Result"     String="result"/>
+				<keyword context="#stay" attribute="Constants"  String="consts"/>
+				<keyword context="#stay" attribute="Builtins"   String="builtins"/>
 				
-				<RegExpr context="Proctar" attribute="Keywords" String="\bconverter\b\s*"/>
-				<RegExpr context="Proctar" attribute="Keywords" String="\biterator\b\s*"/>
-				<RegExpr context="Proctar" attribute="Keywords" String="\bmacro\b\s*"/>
-				<RegExpr context="Proctar" attribute="Keywords" String="\bmethod\b\s*"/>
-				<RegExpr context="Proctar" attribute="Keywords" String="\bproc\b\s*"/>
-				<RegExpr context="Proctar" attribute="Keywords" String="\bfunc\b\s*"/>
-				<RegExpr context="Proctar" attribute="Keywords" String="\btemplate\b\s*"/>
-				<RegExpr context="Typetar" attribute="Keywords" String="\btype\b\s*"/>
-				<RegExpr context="Typetar" attribute="Keywords" String="\bconcept\b\s*"/>
-				<RegExpr context="Typetar" attribute="Keywords" String="\bobject\b\s*"/>
-				<RegExpr context="Typetar" attribute="Keywords" String="\benum\b\s*"/>
+				<WordDetect context="Proctar" attribute="Keywords" String="converter"/>
+				<WordDetect context="Proctar" attribute="Keywords" String="iterator"/>
+				<WordDetect context="Proctar" attribute="Keywords" String="macro"/>
+				<WordDetect context="Proctar" attribute="Keywords" String="method"/>
+				<WordDetect context="Proctar" attribute="Keywords" String="proc"/>
+				<WordDetect context="Proctar" attribute="Keywords" String="func"/>
+				<WordDetect context="Proctar" attribute="Keywords" String="template"/>
+				<WordDetect context="Typetar" attribute="Keywords" String="type"/>
+				<WordDetect context="Typetar" attribute="Keywords" String="concept"/>
+				<WordDetect context="Typetar" attribute="Keywords" String="object"/>
+				<WordDetect context="Typetar" attribute="Keywords" String="enum"/>
 				
-                <RegExpr context="#stay" attribute="Hex"      String="0[xX][0-9A-Fa-f][0-9A-Fa-f_]*('(([ui](8|16|32|64))|(f(32|64|128))|[ufd]))?"/>
-                <RegExpr context="#stay" attribute="Octal"    String="0o[0-7][0-7_]*('(([ui](8|16|32|64))|(f(32|64|128))|[ufd]))?"/>
-                <RegExpr context="#stay" attribute="Binary"   String="0[bB][01][01_]*('(([ui](8|16|32|64))|(f(32|64|128))|[ufd]))?"/>
+				<RegExpr context="#stay" attribute="Hex"      String="0[xX][0-9A-Fa-f][0-9A-Fa-f_]*('(([ui](8|16|32|64))|(f(32|64|128))|[ufd]))?"/>
+				<RegExpr context="#stay" attribute="Octal"    String="0o[0-7][0-7_]*('(([ui](8|16|32|64))|(f(32|64|128))|[ufd]))?"/>
+				<RegExpr context="#stay" attribute="Binary"   String="0[bB][01][01_]*('(([ui](8|16|32|64))|(f(32|64|128))|[ufd]))?"/>
 				<RegExpr context="#stay" attribute="Types"    String="\b_*[A-Z](?:\w|\._*[A-Z])*\b"/>
 				<RegExpr context="#stay" attribute="Funcs"    String="\b\w+\b\s*(?=(\[.*\]\w*)?([\(]|([ ](?![,+\-*/=!^&amp;&lt;&gt;|?]|and|as|div|in|is|isnot|mod|notin|of|or|shl|shr|xor))))"/>
 				
@@ -196,20 +199,20 @@ Improvements:
 				
 				<Int        context="#stay"   attribute="Decimal"/>
 				<HlCChar    context="#stay"   attribute="Char"/>
-                <DetectChar context="string" attribute="String" char="&quot;" beginRegion="String"/>
-                
+				<DetectChar context="string" attribute="String" char="&quot;" beginRegion="String"/>
+				
 				<RegExpr context="DocComment2" attribute="DocComment" String="##[[]"/>
 				<Detect2Chars context="DocComment1" attribute="DocComment" char="#" char1="#"/>
 				<Detect2Chars context="Comment2" attribute="Comment" char="#" char1="[" beginRegion="Comment"/>
 				<DetectChar context="Comment1" attribute="Comment" char="#"/>
 			</context>
 			
-            <context name="stringescape" attribute="String Char" lineEndContext="#stay">
-              <RegExpr attribute="String Char" String="\\[&quot;abfnrtv]" context="#stay"/>
-            </context>
-            
+			<context name="stringescape" attribute="String Char" lineEndContext="#stay">
+				<RegExpr attribute="String Char" String="\\[&quot;abfnrtv]" context="#stay"/>
+			</context>
+			
 			<context name="string" attribute="String" lineEndContext="#stay">
-                <IncludeRules context="stringescape"/>
+				<IncludeRules context="stringescape"/>
 				<DetectChar context="#pop" attribute="String" char="&quot;" endRegion="String"/>
 			</context>
 			
@@ -219,14 +222,14 @@ Improvements:
 				<RegExpr      attribute="Warning" context="#stay" String="(TODO|FIXME)"/>
 				<RegExpr      attribute="Info"    context="#stay" String="(NOTE)"/>
 			</context>
-            
+			
 			<context name="DocComment1" attribute="DocComment" lineEndContext="#pop">
 				<LineContinue attribute="DocComment" context="#stay"/>
 			</context>
-            
+			
 			<context name="DocComment2" attribute="DocComment" lineEndContext="#stay">
 				<LineContinue attribute="DocComment" context="#stay"/>
-                <RegExpr attribute="DocComment" context="DocComment2" String="##[[]" beginRegion="DocComment"/>
+				<RegExpr attribute="DocComment" context="DocComment2" String="##[[]" beginRegion="DocComment"/>
 				<RegExpr attribute="DocComment" context="#pop" String="[]]##" endRegion="DocComment"/>
 			</context>
 			
@@ -235,7 +238,7 @@ Improvements:
 				<RegExpr      attribute="Alert"   context="#stay" String="(BUG|XXXX|HACK)"/>
 				<RegExpr      attribute="Warning" context="#stay" String="(TODO|FIXME)"/>
 				<RegExpr      attribute="Info"    context="#stay" String="(NOTE)"/>
-                <Detect2Chars attribute="Comment" context="Comment2" char="#" char1="[" beginRegion="Comment"/>
+				<Detect2Chars attribute="Comment" context="Comment2" char="#" char1="[" beginRegion="Comment"/>
 				<Detect2Chars attribute="Comment" context="#pop" char="]" char1="#" endRegion="Comment"/>
 			</context>
 			
@@ -271,19 +274,21 @@ Improvements:
 		</contexts>
 		
 		<itemDatas>
-			<itemData name="Normal Text" defStyleNum="dsNormal"    spellChecking="false"/>
-			<itemData name="Keywords"    defStyleNum="dsKeyword"   spellChecking="false"/>
+			<itemData name="Normal Text" defStyleNum="dsNormal"      spellChecking="false"/>
+			<itemData name="Keywords"    defStyleNum="dsKeyword"     spellChecking="false"/>
 			<itemData name="Controls"    defStyleNum="dsControlFlow" spellChecking="false"/>
-			<itemData name="Operators"   defStyleNum="dsKeyword"   spellChecking="false"/>
-			<itemData name="Pragmas"     defStyleNum="dsAttribute" spellChecking="false"/>
-			<itemData name="Types"       defStyleNum="dsDataType"  spellChecking="false"/>
-			<itemData name="Props"       defStyleNum="dsDataType"  spellChecking="false"/>
-			<itemData name="Funcs"       defStyleNum="dsFunction"  spellChecking="false"/>
-			<itemData name="Attrs"       defStyleNum="dsDataType"  spellChecking="false"/>
-			<itemData name="Others"      defStyleNum="dsVariable"  spellChecking="false"/>
+			<itemData name="Operators"   defStyleNum="dsKeyword"     spellChecking="false"/>
+			<itemData name="Pragmas"     defStyleNum="dsAttribute"   spellChecking="false"/>
+			<itemData name="Types"       defStyleNum="dsDataType"    spellChecking="false"/>
+			<itemData name="Props"       defStyleNum="dsDataType"    spellChecking="false"/>
+			<itemData name="Funcs"       defStyleNum="dsFunction"    spellChecking="false"/>
+			<itemData name="Attrs"       defStyleNum="dsDataType"    spellChecking="false"/>
+			<itemData name="Result"      defStyleNum="dsVariable"    spellChecking="false"/>
+			<itemData name="Constants"   defStyleNum="dsConstant"    spellChecking="false"/>
+			<itemData name="Builtins"    defStyleNum="dsBuiltin"     spellChecking="false"/>
 			
 			<itemData name="TypeDefs"    defStyleNum="dsDataType" spellChecking="false" bold="true"/>
-			<itemData name="ProcDefs"    defStyleNum="dsDataType" spellChecking="false" bold="true"/>
+			<itemData name="ProcDefs"    defStyleNum="dsFunction" spellChecking="false" bold="true"/>
 			
 			<itemData name="Brackets"    defStyleNum="dsKeyword"  spellChecking="false"/>
 			<itemData name="Symbols"     defStyleNum="dsOperator" spellChecking="false"/>
@@ -294,13 +299,12 @@ Improvements:
 			<itemData name="Octal"       defStyleNum="dsBaseN"    spellChecking="false"/>
 			<itemData name="Float"       defStyleNum="dsFloat"    spellChecking="false"/>
 			<itemData name="Char"        defStyleNum="dsChar"     spellChecking="false"/>
-			<itemData name="String"      defStyleNum="dsString"   spellChecking="false"/>
-			<itemData name="Comment"     defStyleNum="dsComment"  spellChecking="true"/>
+			<itemData name="String"      defStyleNum="dsString"/>
+			<itemData name="Comment"     defStyleNum="dsComment"/>
 			<itemData name="Alert"       defStyleNum="dsAlert"    spellChecking="false" bold="true"/>
 			<itemData name="Warning"     defStyleNum="dsWarning"  spellChecking="false" bold="true"/>
 			<itemData name="Info"        defStyleNum="dsInformation" spellChecking="false" bold="true"/>
-            
-			<itemData name="DocComment"  defStyleNum="dsDocumentation"  spellChecking="true"/>
+			<itemData name="DocComment"  defStyleNum="dsDocumentation"/>
 		</itemDatas>
 	</highlighting>
 
